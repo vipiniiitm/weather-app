@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+     <div class="col-md-6">
+        <div text-center>
+           <div class="text-center my-4 heading">Search for Weather:</div>
+        </div>
+        <form
+        [formGroup]="weatherSearchForm"
+        (ngSubmit)="onSubmit(weatherSearchForm.value)"
+        >
+        <div class="form-group">
+           <input
+              class="form-control"
+              type="text"
+              placeholder="Please input a Location"
+              formControlName="location"
+              />
+        </div>
+        <div class="text-center">
+           <button type="submit" class="btn btn-primary btn-md">
+           Submit
+           </button>
+        </div>
+        </form>
+     </div>
+     <div class="col-md-6">
+        <!-- <div *ngIf="submitted"> -->
+        <div class="text-center  my-4 heading">Weather Details:</div>
+        <table class="table table-bordered">
+           <tbody>
+              <tr>
+                 <td>Weather discription</td>
+                 <td>  {{ weatherDescriptions }}</td>
+              </tr>
+              <tr>
+                 <td>Temperature in Degrees Celsius</td>
+                 <td>  {{ this.weatherData?.current.temperature }}</td>
+              </tr>
+              <tr>
+                 <td>Humidity</td>
+                 <td>{{ this.weatherData?.current.humidity }}</td>
+              </tr>
+              <tr>
+                 <td>pressure</td>
+                 <td>{{ this.weatherData?.current.pressure }}</td>
+              </tr>
+              <tr>
+                 <td>Wind speed</td>
+                 <td>{{ this.weatherData?.current.wind_speed }}</td>
+              </tr>
+              <tr>
+                 <td>Wind direction</td>
+                 <td>{{ this.weatherData?.current.wind_dir }}</td>
+              </tr>
+              <tr>
+                 <td>Visibility</td>
+                 <td>{{ this.weatherData?.current.visibility }}</td>
+              </tr>
+           </tbody>
+        </table>
+        <!-- </div> -->
+     </div>
+  </div>
+</div>
